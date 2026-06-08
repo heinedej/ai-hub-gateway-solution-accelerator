@@ -15,24 +15,24 @@ param tags = {
 // RESOURCE NAMES - Assign custom names to different provisioned services
 // ============================================================================
 param resourceGroupName = readEnvironmentVariable('AZURE_RESOURCE_GROUP', 'rg-poc-zan-001')
-param apimIdentityName = readEnvironmentVariable('APIM_IDENTITY_NAME', '')
-param usageLogicAppIdentityName = readEnvironmentVariable('USAGE_LOGIC_APP_IDENTITY_NAME', '')
-param apimServiceName = readEnvironmentVariable('APIM_SERVICE_NAME', '')
-param logAnalyticsName = readEnvironmentVariable('LOG_ANALYTICS_NAME', '')
-param apimApplicationInsightsDashboardName = readEnvironmentVariable('APIM_APP_INSIGHTS_DASHBOARD_NAME', '')
-param funcAplicationInsightsDashboardName = readEnvironmentVariable('FUNC_APP_INSIGHTS_DASHBOARD_NAME', '')
-param foundryApplicationInsightsDashboardName = readEnvironmentVariable('FOUNDRY_APP_INSIGHTS_DASHBOARD_NAME', '')
-param apimApplicationInsightsName = readEnvironmentVariable('APIM_APP_INSIGHTS_NAME', '')
-param funcApplicationInsightsName = readEnvironmentVariable('FUNC_APP_INSIGHTS_NAME', '')
-param foundryApplicationInsightsName = readEnvironmentVariable('FOUNDRY_APP_INSIGHTS_NAME', '')
-param eventHubNamespaceName = readEnvironmentVariable('EVENTHUB_NAMESPACE_NAME', '')
-param cosmosDbAccountName = readEnvironmentVariable('COSMOS_DB_ACCOUNT_NAME', '')
-param usageProcessingLogicAppName = readEnvironmentVariable('USAGE_PROCESSING_LOGIC_APP_NAME', '')
-param storageAccountName = readEnvironmentVariable('STORAGE_ACCOUNT_NAME', '')
-param apicServiceName = readEnvironmentVariable('APIC_SERVICE_NAME', '')
-param aiFoundryResourceName = readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', '')
-param keyVaultName = readEnvironmentVariable('KEY_VAULT_NAME', '')
-param redisCacheName = readEnvironmentVariable('REDIS_CACHE_NAME', '')
+param apimIdentityName = readEnvironmentVariable('APIM_IDENTITY_NAME', 'apim-id-poc-zan-001')
+param usageLogicAppIdentityName = readEnvironmentVariable('USAGE_LOGIC_APP_IDENTITY_NAME', 'logic-poc-zan-001')
+param apimServiceName = readEnvironmentVariable('APIM_SERVICE_NAME', 'apim-serv-poc-zan-001')
+param logAnalyticsName = readEnvironmentVariable('LOG_ANALYTICS_NAME', 'loganalytics-poc-zan-001')
+param apimApplicationInsightsDashboardName = readEnvironmentVariable('APIM_APP_INSIGHTS_DASHBOARD_NAME', 'apim-appi-dashboard-poc-zan-001')
+param funcAplicationInsightsDashboardName = readEnvironmentVariable('FUNC_APP_INSIGHTS_DASHBOARD_NAME', 'func-appi-dashboard-poc-zan-001')
+param foundryApplicationInsightsDashboardName = readEnvironmentVariable('FOUNDRY_APP_INSIGHTS_DASHBOARD_NAME', 'foundry-appi-dashboard-poc-zan-001')
+param apimApplicationInsightsName = readEnvironmentVariable('APIM_APP_INSIGHTS_NAME', 'apim-appi-poc-zan-001')
+param funcApplicationInsightsName = readEnvironmentVariable('FUNC_APP_INSIGHTS_NAME', 'func-appi-poc-zan-001')
+param foundryApplicationInsightsName = readEnvironmentVariable('FOUNDRY_APP_INSIGHTS_NAME', 'foundry-appi-poc-zan-001')
+param eventHubNamespaceName = readEnvironmentVariable('EVENTHUB_NAMESPACE_NAME', 'evh-poc-zan-001')
+param cosmosDbAccountName = readEnvironmentVariable('COSMOS_DB_ACCOUNT_NAME', 'cosmos-poc-zan-001')
+param usageProcessingLogicAppName = readEnvironmentVariable('USAGE_PROCESSING_LOGIC_APP_NAME', 'usage-logic-poc-zan-001')
+param storageAccountName = readEnvironmentVariable('STORAGE_ACCOUNT_NAME', 'storagepoczan001')
+param apicServiceName = readEnvironmentVariable('APIC_SERVICE_NAME', 'apic-poc-zan-001')
+param aiFoundryResourceName = readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', 'ai-foundry-poc-zan-001')
+param keyVaultName = readEnvironmentVariable('KEY_VAULT_NAME', 'keyvault-poc-zan-001')
+param redisCacheName = readEnvironmentVariable('REDIS_CACHE_NAME', 'redis-poc-zan-001')
 
 // ============================================================================
 // MONITORING - Log Analytics configuration
@@ -46,7 +46,7 @@ param existingLogAnalyticsSubscriptionId = readEnvironmentVariable('EXISTING_LOG
 // NETWORKING PARAMETERS - Network configuration and access controls
 // ============================================================================
 param vnetName = readEnvironmentVariable('VNET_NAME', 'UCT-hub-southafricanorth')
-param useExistingVnet = bool(readEnvironmentVariable('USE_EXISTING_VNET', 'true'))
+param useExistingVnet = bool(readEnvironmentVariable('USE_EXISTING_VNET', 'true')
 param existingVnetRG = readEnvironmentVariable('EXISTING_VNET_RG', 'UCT-vnethub-southafricanorth')
 
 // Subnet names
@@ -56,13 +56,13 @@ param functionAppSubnetName = readEnvironmentVariable('FUNCTION_APP_SUBNET_NAME'
 param agentSubnetName = readEnvironmentVariable('AGENT_SUBNET_NAME', 'snet-agnt-poc-zan-001')
 
 // NSG & route table names
-param apimNsgName = readEnvironmentVariable('APIM_NSG_NAME', '')
-param privateEndpointNsgName = readEnvironmentVariable('PRIVATE_ENDPOINT_NSG_NAME', '')
-param functionAppNsgName = readEnvironmentVariable('FUNCTION_APP_NSG_NAME', '')
-param agentSubnetNsgName = readEnvironmentVariable('AGENT_SUBNET_NSG_NAME', '')
-param apimRouteTableName = readEnvironmentVariable('APIM_ROUTE_TABLE_NAME', '')
+param apimNsgName = readEnvironmentVariable('nsg-apim-poc-zan-001')
+param privateEndpointNsgName = readEnvironmentVariable('nsg-se-poc-zan-001')
+param functionAppNsgName = readEnvironmentVariable('nsg-func-poc-zan-001')
+param agentSubnetNsgName = readEnvironmentVariable('nsg-agnt-poc-zan-001')
+param apimRouteTableName = readEnvironmentVariable('rt-apim-poc-zan-001')
 
-// VNet address space and subnet prefixes
+// VNet address space and subnet prefixe
 param vnetAddressPrefix = readEnvironmentVariable('VNET_ADDRESS_PREFIX', '')
 param apimSubnetPrefix = readEnvironmentVariable('APIM_SUBNET_PREFIX', '')
 param privateEndpointSubnetPrefix = readEnvironmentVariable('PRIVATE_ENDPOINT_SUBNET_PREFIX', '')
@@ -96,16 +96,14 @@ param existingPrivateDnsZones = {
 }
 
 // Private Endpoint names
-param storageBlobPrivateEndpointName = readEnvironmentVariable('STORAGE_BLOB_PE_NAME', '')
-param storageFilePrivateEndpointName = readEnvironmentVariable('STORAGE_FILE_PE_NAME', '')
-param storageTablePrivateEndpointName = readEnvironmentVariable('STORAGE_TABLE_PE_NAME', '')
-param storageQueuePrivateEndpointName = readEnvironmentVariable('STORAGE_QUEUE_PE_NAME', '')
-param cosmosDbPrivateEndpointName = readEnvironmentVariable('COSMOS_DB_PE_NAME', '')
-param eventHubPrivateEndpointName = readEnvironmentVariable('EVENTHUB_PE_NAME', '')
-param apimV2PrivateEndpointName = readEnvironmentVariable('APIM_V2_PE_NAME', '')
-param aiFoundryPrivateEndpointName = readEnvironmentVariable('AI_FOUNDRY_PE_NAME', '')
-param keyVaultPrivateEndpointName = readEnvironmentVariable('KEY_VAULT_PE_NAME', '')
-param redisPrivateEndpointName = readEnvironmentVariable('REDIS_PE_NAME', '')
+param storageBlobPrivateEndpointName = readEnvironmentVariable('STORAGE_BLOB_PE_NAME', 'storage-blob-pe-poc-zan-001')
+param storageFilePrivateEndpointName = readEnvironmentVariable('STORAGE_FILE_PE_NAME', 'storage-file-pe-poc-zan-001')
+param storageTablePrivateEndpointName = readEnvironmentVariable('STORAGE_TABLE_PE_NAME', 'storage-table-pe-poc-zan-001')
+param storageQueuePrivateEndpointName = readEnvironmentVariable('STORAGE_QUEUE_PE_NAME', 'storage-queue-pe-poc-zan-001')
+param cosmosDbPrivateEndpointName = readEnvironmentVariable('COSMOS_DB_PE_NAME', 'cosmos-db-pe-poc-zan-001')
+param eventHubPrivateEndpointName = readEnvironmentVariable('EVENTHUB_PE_NAME', 'eventhub-pe-poc-zan-001')
+param apimV2PrivateEndpointName = readEnvironmentVariable('APIM_V2_PE_NAME', 'apim-v2-pe-poc-zan-001')
+param aiFoundryPrivateEndpointName = readEnvironmentVariable('AI_FOUNDRY_PE_NAME', 'foundry-pe-poc-zan-001')
 
 // Services network access configuration
 param apimNetworkType = readEnvironmentVariable('APIM_NETWORK_TYPE', 'External')
@@ -197,7 +195,7 @@ param aiFoundryInstances = [
     networkInjectionEnabled: true
   }
   {
-    name: readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', '')
+    name: readEnvironmentVariable('AI_FOUNDRY_RESOURCE_NAME', 'aifoundry-poc-zan-001')
     location: 'southafricanorth'
     customSubDomainName: ''
     defaultProjectName: 'citadel-governance-project'
